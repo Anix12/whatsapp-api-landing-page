@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { Timer, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useDemoPlayback } from "@/lib/use-sequence";
+import { DEMO_SPEED, useDemoPlayback } from "@/lib/use-sequence";
 import { Avatar } from "@/components/ui/avatar";
 import { SampleTag } from "@/components/ui/badge";
 import { WhatsAppIcon } from "@/components/ui/brand-icons";
@@ -141,7 +141,7 @@ function LeadsChartCard({ s, animate }: { s: number; animate: boolean }) {
     <Panel className="relative p-4">
       <PanelHeader title="Leads created" subtitle="Daily, all channels" />
       <div className="relative mt-3">
-        <AreaChart data={leadsSeries} highlightIndex={LAST} drawn={drawn} animate={animate} drawMs={1500} className="h-[140px]" />
+        <AreaChart data={leadsSeries} highlightIndex={LAST} drawn={drawn} animate={animate} drawMs={Math.max(500, 1500 * DEMO_SPEED * 1.6)} className="h-[140px]" />
         <AnimatePresence>
           {drawn === 1 && (
             <>
@@ -153,7 +153,7 @@ function LeadsChartCard({ s, animate }: { s: number; animate: boolean }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ ...swapTransition, delay: animate ? 1.45 : 0 }}
+                transition={{ ...swapTransition, delay: animate ? Math.max(0.5, 1.5 * DEMO_SPEED * 1.6) : 0 }}
               />
               <motion.div
                 key="tooltip"
@@ -162,7 +162,7 @@ function LeadsChartCard({ s, animate }: { s: number; animate: boolean }) {
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: EASE, delay: animate ? 1.55 : 0 }}
+                transition={{ duration: 0.4, ease: EASE, delay: animate ? Math.max(0.55, 1.55 * DEMO_SPEED * 1.6) : 0 }}
               >
                 <span className="inline-flex size-6 items-center justify-center rounded-md bg-[#25d366] text-white">
                   <WhatsAppIcon className="size-3.5" />

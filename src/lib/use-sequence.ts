@@ -5,10 +5,10 @@ import { useInView } from "motion/react";
 
 /**
  * Global playback speed for every product demo on the page.
- * Stage durations in the data files are multiplied by this (0.6 = 40% faster).
+ * Stage durations in the data files are multiplied by this (0.35 ≈ 3× faster than the original pacing).
  * Lower = quicker; 1 = the original pacing.
  */
-export const DEMO_SPEED = 0.6;
+export const DEMO_SPEED = 0.35;
 
 /**
  * Deterministic, pausable stage sequencer.
