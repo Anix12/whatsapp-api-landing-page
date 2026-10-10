@@ -4,7 +4,6 @@ import { WhyLeadsZone } from "@/components/sections/why-leadszone";
 import { SharedInbox } from "@/components/sections/shared-inbox";
 import { Marketing } from "@/components/sections/marketing";
 import { Automation } from "@/components/sections/automation";
-import { CrmPipeline } from "@/components/sections/crm-pipeline";
 import { Analytics } from "@/components/sections/analytics";
 import { Teams } from "@/components/sections/teams";
 import { Journey } from "@/components/sections/journey";
@@ -22,7 +21,6 @@ export default function Home() {
         <SharedInbox />
         <Marketing />
         <Automation />
-        <CrmPipeline />
         <Analytics />
         <Teams />
         <Journey />
